@@ -5,16 +5,52 @@
     --neon-blue: #00f0ff;
     --neon-pink: #ff61d5;
     --text-pure: #ffffff;
-    --text-dim: #b4b9d0;
     --glass-base: rgba(10, 15, 30, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.08);
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+body { background-color: var(--bg-space); color: var(--text-pure); font-family: 'Rajdhani', sans-serif; padding: 20px; }
+
+/* The fix: Force horizontal layout */
+.neon-wave-title {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+    font-size: 2.8rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    margin-bottom: 20px;
 }
+
+.neon-letter {
+    display: inline-block;
+    color: #121834;
+    animation: powerUp 0.5s forwards, syncBlink 2s infinite;
+    animation-delay: var(--delay), calc(var(--delay) + 2s);
+}
+
+@keyframes powerUp {
+    to { color: #fff; text-shadow: 0 0 8px var(--neon-pink), 0 0 16px var(--neon-blue); }
+}
+
+@keyframes syncBlink {
+    0%, 100% { opacity: 1; text-shadow: 0 0 8px var(--neon-pink), 0 0 16px var(--neon-blue); }
+    50% { opacity: 0.6; text-shadow: 0 0 4px var(--neon-pink), 0 0 8px var(--neon-blue); }
+}
+
+/* Contact Box */
+.contact-box { display: flex; gap: 15px; margin-top: 15px; }
+.contact-link {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: var(--text-pure);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+.contact-link:hover { border-color: var(--neon-blue); color: var(--neon-blue); }
 
 body {
     background-color: var(--bg-space);
