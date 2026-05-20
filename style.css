@@ -177,8 +177,10 @@ body {
     letter-spacing: 1px;
     margin-bottom: 8px;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* Change from wrap to nowrap */
+    align-items: center;
     user-select: none;
+    white-space: nowrap; /* Prevents text from breaking into new lines */
 }
 
 .neon-letter {
