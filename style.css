@@ -13,7 +13,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
@@ -74,6 +74,7 @@ body {
     display: flex;
     align-items: center;
     gap: 40px;
+    margin-bottom: 25px;
 }
 
 /* Responsive fixes for overlapping layout text */
@@ -217,6 +218,50 @@ body {
     color: var(--text-dim);
 }
 
+/* Playful Moving Banner Engine */
+.fun-facts-marquee {
+    width: 100%;
+    overflow: hidden;
+    background: rgba(255, 97, 213, 0.03);
+    border: 1px dashed rgba(255, 97, 213, 0.3);
+    border-radius: 10px;
+    padding: 10px 0;
+    margin-top: 25px;
+    position: relative;
+    display: flex;
+}
+
+.marquee-track {
+    display: flex;
+    white-space: nowrap;
+    width: max-content;
+    animation: scroll-left 25s linear infinite;
+}
+
+.fun-facts-marquee:hover .marquee-track {
+    animation-play-state: paused; /* Pauses beautifully when recruiters mouse-over */
+}
+
+.marquee-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 35px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.fact-blue { color: var(--neon-blue); text-shadow: 0 0 8px rgba(0, 240, 255, 0.2); }
+.fact-pink { color: var(--neon-pink); text-shadow: 0 0 8px rgba(255, 97, 213, 0.2); }
+
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
 /* Layout Content Grids */
 .portfolio-section {
     margin: 40px 0;
@@ -263,7 +308,7 @@ body {
     border-radius: 14px;
     padding: 30px;
     position: relative;
-    overflow: visible; /* Required for the tooltips to display properly outside card walls */
+    overflow: visible;
 }
 
 .neon-border-pink { border-left: 3px solid var(--neon-pink); }
